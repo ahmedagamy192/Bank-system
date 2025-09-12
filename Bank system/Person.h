@@ -12,9 +12,6 @@ public:
 	Person() {
 		this->id = 0;
 	}
-
-	// paramterize constrctor
-
 	Person(int id, string name, string password) {
 		this->id = id;
 		setName(name);
