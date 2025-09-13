@@ -1,7 +1,5 @@
 #pragma once
 #include "Person.h"
-#include <fstream>
-#include <string>
 class Employee : public Person
 {
 protected:
@@ -40,25 +38,5 @@ public:
 		Person::displayInfo();
 		cout << "salary :" << salary << endl;
 	}
-
-
-
-
-
-	void saveToFile() {
-		fstream file;
-		string fileName = "Employee.txt";
-		file.open("Employee.txt", ios::app);
-		file << "ID: " << id
-			<< ", Name: " << name
-			<< ", salary: " << salary
-			<< ", password: " << password << endl;
-		file.close();
-		cout << " Employee saved successfully!\n";
-
-	}
-
-
-
 };
 

@@ -1,20 +1,24 @@
 #pragma once
 #include<iostream>
+#include<string>
 using namespace std;
 class Validation
 {
 public:
 
 	static bool checkName(string name) {
-		if (!(name.size() >= 5 && name.size() <= 20)) { cout << "invalid name\n"; }
-		return false;
+		if ( !(name.size() >= 5 && name.size() <= 20) ) {
+			cout << "invalid name\n";
+			return false;
+		}
 		for (int i = 0; i < name.size(); i++) {
 			if (!(name[i] >= 'a' && name[i] <= 'z' || name[i] >= 'A' && name[i] <= 'Z')) {
 				cout << " invalid name\n";
+				return false;
 			}
-			return false;
 
 		}
+		return true;
 	}
 
 
@@ -25,7 +29,6 @@ public:
 
 		if (!(password.size() >= 8 && password.size() <= 20))
 		{
-
 			cout << " invalid name\n";
 			return false;
 		}

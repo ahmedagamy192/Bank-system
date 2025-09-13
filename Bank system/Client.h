@@ -68,20 +68,4 @@ public:
 		cout << "balance :" << balance << endl;
 	}
 
-
-
-
-	void saveToFile() {
-		fstream file;
-		string fileName = "Clients.txt";
-		file.open("Clients.txt", ios::app);
-		file << "ID: " << id
-			<< ", Name: " << name
-			<< ", Balance: " << balance
-			<< ", password: " << password << endl;
-		file.close();
-		cout << " Client saved successfully!\n";
-	}
-
-
 };
