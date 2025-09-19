@@ -1,7 +1,6 @@
 #pragma once
 #include "Person.h"
-#include <fstream>
-#include <string>
+#include<vector>
 
 class Client : public Person
 {
@@ -68,4 +67,22 @@ public:
 		cout << "balance :" << balance << endl;
 	}
 
+
+	//Client* getClientById(int id) {
+	//	for (auto& client : clients) {
+	//		if (client.getId() == id) {
+	//			return &client;
+	//		}
+	//	}
+	//	return nullptr;
+	//}
+
+
+
+
 };
+
+static vector<Client> allClients;
+
+static vector<Client>::iterator clientIt;
+

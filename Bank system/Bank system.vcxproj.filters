@@ -42,6 +42,9 @@
     <ClCompile Include="Praser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Filemanger.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Validation.h">
@@ -66,6 +69,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Praser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Filemanger.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

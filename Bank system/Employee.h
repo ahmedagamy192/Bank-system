@@ -1,5 +1,5 @@
 #pragma once
-#include "Person.h"
+#include "Client.h"
 class Employee : public Person
 {
 protected:
@@ -29,7 +29,7 @@ public:
 
 	// getters
 
-	double getbalance() const { return salary; }
+	double getSalary() const { return salary; }
 
 
 	// methodes
