@@ -1,61 +1,39 @@
 #pragma once
 #include "Validation.h"
-class Person
-{
+class Person {
 protected:
-	int id;
-	string name;
-	string password;
+    int id;
+    string name;
+    string password;
 public:
+    Person() {
+        this->id = id;
+        this->name = name;
+        this->password = password;
+    }
+    Person(int id, string name, string password) {
 
-	//constrctor
-	Person() {
-		this->id = 0;
-	}
-	Person(int id, string name, string password) {
-		this->id = id;
-		setName(name);
-		setpassword(password);
-	}
+        this->id = id;
+        this->name = name;
+        this->password = password;
+    }
+    
 
-	//seters
-	void setName(string name) {
-		if (Validation::checkName(name)) {
-			this->name = name;
-		}
-		else cout << " invalid name\n";
-	}
+    void setId(int id) { id = id; }
+    bool setName( string name) {
+        if (Validation::validateName(name)) { name = name; return true; }
+        return false;
+    }
+    bool setPassword( string pass) {
+        if (Validation::validatePassword(pass)) { password = pass; return true; }
+        return false;
+    }
 
+    int getId() const { return id; }
+    string getName() const { return name; }
+    string getPassword() const { return password; }
 
-	void setpassword(string password) {
-		if (Validation::checkPassword(password)) {
-			this->password = password;
-		}
-		else cout << " invalid password\n";
-
-
-	}
-
-	void setid(int id) { this->id = id; }
-
-
-
-	//getters
-
-
-
-
-	string getName() { return this->name; }
-	string getpassword() { return this->password; }
-	int getId() const { return this->id; }
-
-	//methodes
-
-	virtual void displayInfo() const {
-		cout << "name : " << name << endl;
-		cout << "password : " << password << endl;
-		cout << "id : " << id << endl;
-	}
-
+    virtual void display() const {
+        cout << "ID: " << id << " | Name: " << name << endl;
+    }
 };
-

@@ -1,66 +1,22 @@
 #pragma once
 #include<iostream>
 #include<string>
-
+#include <cctype>
 using namespace std;
-class Validation
-{
+class Validation {
 public:
-
-	static bool checkName(string name) {
-		if ( !(name.size() >= 5 && name.size() <= 20) ) {
-			cout << "invalid name\n";
-			return false;
-		}
-		for (int i = 0; i < name.size(); i++) {
-			if (!(name[i] >= 'a' && name[i] <= 'z' || name[i] >= 'A' && name[i] <= 'Z')) {
-				cout << " invalid name\n";
-				return false;
-			}
-
-		}
-		return true;
-	}
-
-
-	//ckeck password
-
-
-	static bool checkPassword(string password) {
-
-		if (!(password.size() >= 8 && password.size() <= 20))
-		{
-			cout << " invalid name\n";
-			return false;
-		}
-
-		return true;
-	}
-
-
-	//check balance
-
-
-	static bool checkBalance(double balance) {
-		if (balance < 1500) {
-			cout << " balance less 1500\n"; return false;
-		}
-
-		return true;
-	}
-
-
-	// check salary
-
-
-	static bool checksalary(double salary) {
-		if (salary < 5000) {
-			cout << " salary less 5000\n"; return false;
-		}
-
-		return true;
-
-	}
-
+    static bool validateName( string name) {
+        if (name.size() < 5 || name.size() > 20) return false;
+        for (char c : name) if (!isalpha(c)) return false;
+        return true;
+    }
+    static bool validatePassword( string pass) {
+        return pass.size() >= 8 && pass.size() <= 20;
+    }
+    static bool validateClientBalance(double b) {
+        return b >= 1500.0;
+    }
+    static bool validateSalary(double s) {
+        return s >= 5000.0;
+    }
 };
-

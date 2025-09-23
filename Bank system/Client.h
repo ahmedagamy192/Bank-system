@@ -1,88 +1,51 @@
+
 #pragma once
 #include "Person.h"
 #include<vector>
+#include"Validation.h"
 
-class Client : public Person
-{
-private:
-	double balance;
+
+
+
+
+class Client : public Person {
+    double balance;
 public:
+    Client():Person() {
+        balance = 1500;
+    }
+    
+    Client(int id, string name, string password, double balance) :Person() {
+        this->balance = balance;
+    }
+    
+   
 
-	// constrctor
+    void setBalance(double b) { if (Validation::validateClientBalance(b)) balance = b; }
+    double getBalance() const { return balance; }
 
-	Client() : Person() {
-		this->balance = 0;
-	}
-
-	// constrctor par
-	Client(double balance, int id, string name, string password) :Person(id, name, password) {
-		setbalane(balance);
-	}
-
-
-
-	//setter
-
-	void setbalane(double balance) {
-		if (Validation::checkBalance(balance))
-			this->balance = balance;
-		else cout << "invalid balance" << endl;
-	}
-
-	// getters
-
-	double getbalance() const { return balance; }
-
-
-	// methodes
-
-	void deposit(double amount) {
-		balance += amount;
-	}
-
-
-	void  withdraw(double amount) {
-		if (balance >= amount) {
-			balance -= amount;
-		}
-		else  cout << "balance not enough\n ";
-
-
-	}
-
-	void transfer(double amount, Client& c) {
-		if (balance >= amount) {
-			balance -= amount;
-		}
-		c.deposit(amount);
-	}
-
-
-	void checkBalance() const {
-		cout << "balance :" << balance << endl;
-	}
-
-	void displayInfo()const {
-		Person::displayInfo();
-		cout << "balance :" << balance << endl;
-	}
-
-
-	//Client* getClientById(int id) {
-	//	for (auto& client : clients) {
-	//		if (client.getId() == id) {
-	//			return &client;
-	//		}
-	//	}
-	//	return nullptr;
-	//}
-
-
-
-
+    void deposit(double amount) {
+        if (amount <= 0) { cout << "money sholud more than zero.\n"; return; }
+        balance += amount;
+        cout << "money deposit " << amount <<  "credit now" << balance << endl;
+    }
+    bool withdraw(double amount) {
+        if (amount <= 0) { cout << "money sholud more than zero.\n";  return false; }
+        if (amount <= balance) { balance -= amount; cout  << amount <<"credit now" << balance << endl; return true; }
+        cout << "not enogh credit"; return false;
+    }
+    bool transferTo(double amount, Client& recipient) {
+        if (withdraw(amount)) {
+            recipient.deposit(amount);
+            cout << "transfer" << amount << "to " << recipient.getName() << endl;
+            return true;
+        }
+        return false;
+    }
+    void checkBalance() {
+        cout << balance << endl;
+    }
+    void display()  {
+        cout << "Client => ID: " << id << " Name: " << name << "  Balance: " << balance << endl;
+    }
 };
-
-static vector<Client> allClients;
-
-static vector<Client>::iterator clientIt;
-
