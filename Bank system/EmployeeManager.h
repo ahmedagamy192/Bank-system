@@ -47,7 +47,7 @@ class EmployeeManager
                     int sid; cout << "enter id to serch "; cin >> sid; cin.ignore();
                     Client* c = nullptr;
                     for (auto& cc : clientManager.getClients()) if (cc.getId() == sid) { c = &cc; break; }
-                    if (c) c->display(); else cout <<" not found \n;"
+                    if (c) c->display(); else cout << " not found \n;";
                 }
                 else if (opt == 3) {
                     clientManager.getClients(); 

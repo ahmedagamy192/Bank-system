@@ -6,6 +6,7 @@ class ClientManager
     FileManager& fm;
     vector<Client> clients;
 public:
+ 
     ClientManager(FileManager& fm) : fm(fm) { clients = fm.getAllClients(); }
 
     Client* login(int id, const string& password) {

@@ -1,7 +1,6 @@
 #pragma once
 #include"DataSourceInterface.h"
 #include"FilesHelper.h"
-
 class FileManager : public DataSourceInterface {
     string clientsFile = "clients.txt";
     string employeesFile = "employees.txt";

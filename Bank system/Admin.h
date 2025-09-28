@@ -14,7 +14,9 @@ public:
         this->salary = 0;
     }
 
+    Admin(int id, string name, string pass, double salary) :Employee(id, name, pass, salary) {
 
+    }
     
     void addEmployee(vector<Employee>& employees, const Employee& e) {
         employees.push_back(e);

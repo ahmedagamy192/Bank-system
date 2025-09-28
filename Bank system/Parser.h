@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <sstream>    
 #include <vector>    
 #include"Admin.h"
@@ -42,6 +42,6 @@ public:
         string name = p[1];
         string pass = p[2];
         double sal = stod(p[3]);
-        return Admin(id, name, pass, sal);
+        return Admin(id, name, pass, sal); // مكانش في constructor Admin
     }
 };
